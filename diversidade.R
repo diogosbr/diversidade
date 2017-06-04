@@ -4,7 +4,7 @@ diversidade=
       cat("Pacotes OK!")} else(install.packages("vegan",dependencies = T))
     
     if("xlsx" %in% rownames(installed.packages())){
-      cat("Pacotes OK!/n")} else(install.packages("xlsx"))
+      cat("Pacotes OK!\n")} else(install.packages("xlsx"))
     require(vegan)
     require(xlsx)
     
