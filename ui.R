@@ -1,11 +1,9 @@
-library(shiny)
-
 # Define UI for data upload app ----
 ui <- fluidPage(
   # App title ----
   titlePanel("Diversidade"),
   helpText("Cálculo dos índices de diversidade de espécies"),
-  
+
   # Sidebar layout with input and output definitions ----
   sidebarLayout(
     # Sidebar panel for inputs ----
@@ -19,13 +17,13 @@ ui <- fluidPage(
                    "text/comma-separated-values,text/plain",
                    ".csv")
       ),
-      
+
       # Horizontal line ----
       tags$hr(),
-      
+
       # Input: Checkbox if file has header ----
       checkboxInput("header", "Cabeçalho", TRUE),
-      
+
       # Input: Select separator ----
       radioButtons(
         "sep",
@@ -37,7 +35,7 @@ ui <- fluidPage(
         ),
         selected = ";"
       ),
-      
+
       # Input: Select quotes ----
       # radioButtons(
       #   "quote",
@@ -49,10 +47,10 @@ ui <- fluidPage(
       #   ),
       #   selected = '"'
       # ),
-      
+
       # Horizontal line ----
       tags$hr(),
-      
+
       # Input: Select number of rows to display ----
       radioButtons(
         "disp",
@@ -63,10 +61,10 @@ ui <- fluidPage(
         ),
         selected = "head"
       ),
-      
+
       # Horizontal line ----
       tags$hr(),
-      
+
       radioButtons(
         "base",
         "Base de logaritmo usada no índice de Shannon",
@@ -75,15 +73,15 @@ ui <- fluidPage(
           "Nats/indv." = "exp(1)",
           "Decits/indv." = "10"
         )
-        
+
       ) ,
       actionButton("btn_calcular", "Calcular!")
     ),
-    
+
     # Main panel for displaying outputs ----
     mainPanel(tabsetPanel(
       tabPanel("Entrada de dados",
-               
+
                tableOutput("input_data")),
       tabPanel("Resultado",
                tableOutput("results"))
